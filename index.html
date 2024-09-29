@@ -16,65 +16,165 @@
   
     <title>Accueil - Lumicraft</title>
 
-  <style>
-    body {
-      background-color: #1e1e1e;
-      color: #fff;
-      font-family: 'Jost', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #fff;
+            font-family: 'Jost', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    .available-soon-container {
-      background-color: #2c2c2c;
-      border-radius: 10px;
-      padding: 40px;
-      text-align: center;
-      width: 400px;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-      position: relative;
-    }
+        .container {
+            text-align: center;
+            width: 400px;
+            background-color: #2c2c2c;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
 
-    .logo {
-      width: 80px;
-      height: 80px;
-      background-color: #ffffff00;
-      border-radius: 50%;
-      margin: 0 auto 20px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+        .logo {
+            width: 80px;
+            height: 80px;
+            background-color: transparent;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-    .logo img {
-      width: 50px;
-    }
+        .logo img {
+            width: 50px;
+        }
 
-    h1 {
-      font-family: 'Fredoka One', cursive;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
+        h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
 
-    p {
-      font-size: 1.1em;
-    }
-  </style>
+        .btn {
+            font-size: 1.1em;
+            padding: 10px 20px;
+            background-color: #2c2c2c;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #2c2c2c;
+            transform: scale(1.05);
+        }
+
+        /* Popup Styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            color: white;
+            position: relative;
+            text-align: left;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-content h2 {
+            font-family: 'Fredoka One', cursive;
+            margin-bottom: 10px;
+        }
+
+        .popup-content p {
+            font-size: 1.1em;
+            line-height: 1.6em;
+        }
+
+        .popup-content ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .popup-content ul li {
+            margin-bottom: 10px;
+        }
+
+        .popup-content .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            background: none;
+        }
+    </style>
 
 </head>
 
 <body>
-  <div class="available-soon-container">
-    <div class="logo">
-      <img src="images/Lumicraft-Logo.png" alt="Logo">
+    <div class="container">
+        <div class="logo">
+            <img src="images/Lumicraft-Logo.png" alt="Logo">
+        </div>
+        <h1>SERVEUR CLÔTURÉ</h1>
+        <p>Nous sommes malheureusement contraints de clôturer définitivement le serveur Lumicraft en raison de plusieurs problèmes techniques majeurs liés à notre hébergeur VPS</p>
+        <button class="btn" onclick="openPopup()">Lire le communiqué officiel concernant la clôturation</button>
     </div>
-    
-    <h1>Serveur clôturé</h1>
-    <p>Nous sommes malheureusement contraint de clôturer le serveur définitievement à cause de notre hébergeur VPS</p>
-  </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <button class="close-btn" onclick="closePopup()">x</button>
+            <h2>Communiqué officiel de Lumicraft</h2>
+            <p>Chères joueuses, chers joueurs,</p>
+            <p>C'est avec une grande tristesse que nous vous annonçons la fermeture définitive de notre serveur Minecraft <b>Lumicraft</b>. Après plusieurs semaines d'efforts pour maintenir le serveur en ligne et offrir la meilleure expérience possible, nous avons été confrontés à des difficultés techniques insurmontables.</p>
+            <p>Voici les principales raisons qui nous ont contraints à cette décision :</p>
+            <ul>
+                <li>Serveur VPS non fonctionnel, rendant l'hébergement instable.</li>
+                <li>Hébergeur VPS incompétent pour répondre à nos besoins.</li>
+                <li>Problèmes récurrents de stockage non fonctionnel.</li>
+                <li>Aucun remboursement de l'hébergeur malgré les dysfonctionnements.</li>
+                <li>RAM constamment surchargée sans raison apparente.</li>
+            </ul>
+            <p>Par souci d'anonymat et pour éviter toute vague de haine, nous avons décidé de ne pas divulguer le nom de l'hébergeur concerné. Nous tenons à vous remercier pour votre soutien, votre engagement, et votre présence sur Lumicraft.</p>
+            <p>Merci encore pour votre compréhension et votre soutien indéfectible.</p>
+            <p>L'équipe d'administration DPTM de Lumicraft</p>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>
